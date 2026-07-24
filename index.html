@@ -1,55 +1,878 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title>My Personal Page</title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.65">
-  <style type="text/css">
-    body {background-color: #f1f1f1}
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Arial; color: #262626; -webkit-text-stroke: #262626}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Arial; color: #0000e9; -webkit-text-stroke: #0000e9}
-    p.p6 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Arial; color: #262626; -webkit-text-stroke: #262626}
-    li.li1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Arial; color: #262626; -webkit-text-stroke: #262626}
-    span.s1 {font-kerning: none}
-    span.s2 {text-decoration: underline ; font-kerning: none}
-    span.s3 {font-kerning: none; color: #262626; -webkit-text-stroke: 0px #262626}
-    span.s4 {-webkit-text-stroke: 0px #000000}
-    ul.ul1 {list-style-type: disc}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hongyi Su | Geophysics Researcher</title>
+
+  <meta name="description" content="Personal academic website of Hongyi Su, PhD candidate in Geophysics at Université Grenoble Alpes. Research interests include earthquake source mechanics, ground motion modelling, and numerical simulation.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      color: #262626;
+      background-color: #f5f7fa;
+    }
+
+    a {
+      color: #1d5fa7;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-name {
+      font-size: 20px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #333;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* Hero */
+    header {
+      background-color: #ffffff;
+      padding: 80px 25px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      color: #1f2933;
+    }
+
+    .hero h2 {
+      font-size: 22px;
+      font-weight: normal;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .research-keywords {
+      font-size: 17px;
+      color: #1d5fa7;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .hero p {
+      max-width: 800px;
+      font-size: 17px;
+      color: #444;
+    }
+
+    .contact-info {
+      margin-top: 25px;
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    /* Main */
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 25px;
+    }
+
+    section {
+      background-color: #ffffff;
+      padding: 35px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+
+    section h2 {
+      font-size: 28px;
+      margin-bottom: 25px;
+      color: #1f2933;
+      border-bottom: 2px solid #1d5fa7;
+      padding-bottom: 8px;
+    }
+
+    section h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    /* Timeline */
+    .timeline-item {
+      margin-bottom: 30px;
+      padding-left: 20px;
+      border-left: 3px solid #1d5fa7;
+    }
+
+    .timeline-date {
+      font-weight: bold;
+      color: #1d5fa7;
+      font-size: 15px;
+    }
+
+    .timeline-title {
+      font-size: 19px;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    .timeline-place {
+      color: #555;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .thesis {
+      margin-top: 8px;
+      padding: 10px 15px;
+      background-color: #f1f5f9;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+
+    /* Research Projects */
+    .project {
+      margin-bottom: 30px;
+      padding: 22px;
+      background-color: #f8fafc;
+      border-left: 4px solid #1d5fa7;
+      border-radius: 5px;
+    }
+
+    .project h3 {
+      color: #1d5fa7;
+    }
+
+    .project p {
+      margin-top: 8px;
+    }
+
+    .tags {
+      margin-top: 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #e8f0f8;
+      color: #1d5fa7;
+      padding: 4px 10px;
+      margin: 3px 4px 3px 0;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+
+    /* Publications */
+    .publication {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .publication:last-child {
+      border-bottom: none;
+    }
+
+    .publication strong {
+      color: #222;
+    }
+
+    /* Lists */
+    ul {
+      padding-left: 25px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* Awards */
+    .award {
+      margin-bottom: 15px;
+    }
+
+    .award-year {
+      font-weight: bold;
+      color: #1d5fa7;
+    }
+
+    /* Skills */
+    .skill-group {
+      margin-bottom: 20px;
+    }
+
+    .skill-group strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #1f2933;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+
+      .nav-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero h2 {
+        font-size: 19px;
+      }
+
+      section {
+        padding: 25px;
+      }
+    }
   </style>
+
 </head>
+
 <body>
-<p class="p1"><span class="s1"><br>
-<span class="Apple-converted-space"> </span><br>
-<span class="Apple-converted-space"> </span><br>
-<span class="Apple-converted-space"> </span><br>
-</span></p>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Arial; color: #262626; -webkit-text-stroke: #262626"><span class="s1"><b>HONGYI SU</b></span></h1>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 12.0px Arial; color: #262626; -webkit-text-stroke: #262626"><span class="s1">Welcome to my personal page</span></h1>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p4"><span class="s2">About Me</span><span class="s3"> </span><span class="s2">Projects</span><span class="s3"> </span><span class="s2">Contact</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Arial; color: #262626; -webkit-text-stroke: #262626"><span class="s1"><b>About Me</b></span></h2>
-<p class="p6"><span class="s1">Hello! My name is Hongyi Su. This is my personal website. I am a PhD candidate in Geophysics.<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Arial; color: #262626; -webkit-text-stroke: #262626"><span class="s1"><b>My Projects</b></span></h2>
-<ul class="ul1">
-  <li class="li1"><span class="s4"></span><span class="s1">Project 1</span></li>
-  <li class="li1"><span class="s4"></span><span class="s1">Project 2</span></li>
-  <li class="li1"><span class="s4"></span><span class="s1">Project 3</span></li>
-</ul>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Arial; color: #262626; -webkit-text-stroke: #262626"><span class="s1"><b>Contact Me</b></span></h2>
-<p class="p6"><span class="s1">Email: hongyi.su@asnr.fr</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p6"><span class="s1">© 2026 Hongyi Su. All rights reserved.</span></p>
-<p class="p1"><span class="s1"><br>
-<span class="Apple-converted-space"> </span></span></p>
+
+  <!-- Navigation -->
+
+  <nav>
+    <div class="nav-container">
+      <div class="nav-name">Hongyi Su</div>
+
+```
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+```
+
+  </nav>
+
+  <!-- Hero Section -->
+
+  <header>
+    <div class="hero">
+
+```
+  <h1>Hongyi Su</h1>
+
+  <h2>PhD Candidate in Geophysics</h2>
+
+  <div class="research-keywords">
+    Earthquake Source Mechanics · Ground Motion Modelling · Numerical Simulation
+  </div>
+
+  <p>
+    Welcome to my personal academic website. I am a PhD candidate in Geophysics
+    at Université Grenoble Alpes, working on near-fault ground motion prediction,
+    site effects, and wave propagation at regional scale.
+  </p>
+
+  <div class="contact-info">
+    📍 ISTerre, Bureau 352, Risk Team<br>
+    1381, rue de la Piscine, 38610 Gières, France<br>
+    📧 <a href="mailto:hongyi.su@asnr.fr">hongyi.su@asnr.fr</a> |
+    <a href="mailto:hongyi.su@univ-grenoble-alpes.fr">
+      hongyi.su@univ-grenoble-alpes.fr
+    </a><br>
+    📞 +33 (0) 7 88 10 96 64
+  </div>
+
+</div>
+```
+
+  </header>
+
+  <main>
+
+```
+<!-- About -->
+<section id="about">
+
+  <h2>About Me</h2>
+
+  <p>
+    Hello! My name is Hongyi Su. I am a PhD candidate in Geophysics at
+    Université Grenoble Alpes in France. My research focuses on understanding
+    earthquake source processes and improving the prediction and simulation
+    of strong ground motion.
+  </p>
+
+  <p style="margin-top: 15px;">
+    My current doctoral research investigates near-fault ground motion,
+    site effects, and wave propagation at regional scale for a shallow
+    earthquake in southeastern France. I am particularly interested in
+    combining observational data, physics-based numerical simulations,
+    and statistical methods to better understand earthquake ground motion.
+  </p>
+
+  <p style="margin-top: 15px;">
+    My broader research interests include earthquake source mechanics,
+    dynamic rupture modelling, computational seismology, high-performance
+    computing, seismic data analysis, and physics-based ground motion
+    modelling.
+  </p>
+
+</section>
+
+
+<!-- Education -->
+<section id="education">
+
+  <h2>Education</h2>
+
+  <div class="timeline-item">
+
+    <div class="timeline-date">October 2023 – October 2026</div>
+
+    <div class="timeline-title">
+      Doctor of Philosophy in Geophysics — On-going
+    </div>
+
+    <div class="timeline-place">
+      Université Grenoble Alpes, Grenoble, France
+    </div>
+
+    <div class="thesis">
+      <strong>Thesis:</strong>
+      Near-fault ground motion prediction, site effects and wave propagation
+      at regional scale for a shallow earthquake in southeastern France.
+      <br><br>
+
+      <strong>Director:</strong> Dr. Mathieu Causse (ISTerre)
+      <br>
+
+      <strong>Co-supervisors:</strong>
+      Dr. Cécile Cornou (ISTerre),
+      Dr. Sébastien Hok (ASNR),
+      Dr. Céline Gélis (ASNR)
+    </div>
+
+  </div>
+
+
+  <div class="timeline-item">
+
+    <div class="timeline-date">November 2020 – February 2023</div>
+
+    <div class="timeline-title">
+      Master of Science in Geophysics
+    </div>
+
+    <div class="timeline-place">
+      Ludwig-Maximilians-Universität München and Technische Universität München,
+      Munich, Germany
+    </div>
+
+    <div class="thesis">
+      <strong>Joint International Master's Program</strong>
+      between the two German universities.
+      <br><br>
+
+      <strong>Master's Thesis:</strong>
+      Dynamic Rupture Modeling of the 2017 Mw 6.5 Botswana Intraplate
+      Earthquake using SeisSol.
+      <br><br>
+
+      <strong>Supervisors:</strong>
+      Prof. Dr. Alice-Agnes Gabriel and Prof. Dr. Max Moorkamp
+    </div>
+
+  </div>
+
+
+  <div class="timeline-item">
+
+    <div class="timeline-date">September 2017 – June 2020</div>
+
+    <div class="timeline-title">
+      Bachelor of Science in Geophysics, Minor in Mathematics
+    </div>
+
+    <div class="timeline-place">
+      University of Calgary, Calgary, Canada
+    </div>
+
+    <div class="thesis">
+      <strong>Bachelor's Thesis:</strong>
+      PSD Analysis for Seismic Data in Mount Meager Area.
+      <br><br>
+
+      <strong>Supervisor:</strong>
+      Prof. Dr. Hersh Gilbert
+    </div>
+
+  </div>
+
+
+  <div class="timeline-item">
+
+    <div class="timeline-date">June 2015 – June 2017</div>
+
+    <div class="timeline-title">
+      Bachelor of Engineering in Exploration Technology and Engineering
+    </div>
+
+    <div class="timeline-place">
+      Southwest Petroleum University, Chengdu, China
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Research -->
+<section id="research">
+
+  <h2>Research Projects</h2>
+
+  <div class="project">
+
+    <h3>Near-Fault Ground Motion and Site Effects</h3>
+
+    <p>
+      My current PhD research focuses on understanding and predicting
+      near-fault ground motion for shallow earthquakes in southeastern France.
+      The project investigates the effects of earthquake source processes,
+      local site conditions, and regional wave propagation on observed
+      ground motion.
+    </p>
+
+    <div class="tags">
+      <span class="tag">Near-Fault Ground Motion</span>
+      <span class="tag">Site Effects</span>
+      <span class="tag">Wave Propagation</span>
+      <span class="tag">Ground Motion Prediction</span>
+      <span class="tag">Bayesian Methods</span>
+    </div>
+
+  </div>
+
+
+  <div class="project">
+
+    <h3>2019 Le Teil Earthquake — Ground Motion Reconstruction</h3>
+
+    <p>
+      I am developing a Bayesian framework for reconstructing near-fault
+      ground motion from in-situ observations, with a focus on the
+      2019 Le Teil earthquake in southeastern France. The work combines
+      observational constraints with statistical and physical modelling
+      approaches to improve our understanding of near-source ground motion.
+    </p>
+
+    <div class="tags">
+      <span class="tag">Le Teil Earthquake</span>
+      <span class="tag">Bayesian Framework</span>
+      <span class="tag">Seismic Observations</span>
+      <span class="tag">Ground Motion Reconstruction</span>
+    </div>
+
+  </div>
+
+
+  <div class="project">
+
+    <h3>Dynamic Rupture Modelling of the 2017 Botswana Earthquake</h3>
+
+    <p>
+      During my Master's research, I investigated the 2017 Mw 6.5 Botswana
+      intraplate earthquake using physics-based dynamic rupture simulations
+      with the SeisSol software. The project explored earthquake source
+      processes and their influence on simulated ground motion.
+    </p>
+
+    <div class="tags">
+      <span class="tag">Dynamic Rupture</span>
+      <span class="tag">SeisSol</span>
+      <span class="tag">Physics-Based Simulation</span>
+      <span class="tag">Intraplate Earthquake</span>
+      <span class="tag">Computational Seismology</span>
+    </div>
+
+  </div>
+
+
+  <div class="project">
+
+    <h3>Seismic Investigation of the Mount Meager Geothermal System</h3>
+
+    <p>
+      As a PURE undergraduate researcher at the University of Calgary,
+      I participated in a seismic investigation of the Mount Meager
+      geothermal system in British Columbia, Canada. The project involved
+      seismic data analysis and structure imaging to investigate the
+      subsurface characteristics of the geothermal area.
+    </p>
+
+    <div class="tags">
+      <span class="tag">Seismic Data Analysis</span>
+      <span class="tag">Geothermal Exploration</span>
+      <span class="tag">Structure Imaging</span>
+      <span class="tag">Mount Meager</span>
+    </div>
+
+  </div>
+
+
+  <div class="project">
+
+    <h3>PSD Analysis for Seismic Data</h3>
+
+    <p>
+      My undergraduate thesis investigated Power Spectral Density (PSD)
+      characteristics of seismic data from the Mount Meager area.
+      The project focused on analysing seismic signals and extracting
+      information relevant to subsurface and seismic noise characteristics.
+    </p>
+
+    <div class="tags">
+      <span class="tag">PSD Analysis</span>
+      <span class="tag">Seismic Data</span>
+      <span class="tag">Signal Processing</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Research Experience -->
+<section id="experience">
+
+  <h2>Research Experience</h2>
+
+  <div class="timeline-item">
+
+    <div class="timeline-date">November 2021 – February 2022</div>
+
+    <div class="timeline-title">
+      Student Helper (Hiwi)
+    </div>
+
+    <div class="timeline-place">
+      Institute of Geophysics, Ludwig-Maximilians-Universität München,
+      Germany
+    </div>
+
+  </div>
+
+
+  <div class="timeline-item">
+
+    <div class="timeline-date">May 2019 – September 2019</div>
+
+    <div class="timeline-title">
+      P.U.R.E. Undergraduate Student Researcher
+    </div>
+
+    <div class="timeline-place">
+      Department of Geoscience, University of Calgary, Canada
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Publications -->
+<section id="publications">
+
+  <h2>Publications & Conference Contributions</h2>
+
+  <div class="publication">
+    <strong>Su, H.</strong>, Hok, S., Causse, M., Gélis, C., Cornou, C. (2026).
+    <em>
+      A Bayesian Framework for Near-Fault Ground Motion Reconstruction
+      from In-Situ Observation: Case Study of the 2019 Le Teil Earthquake.
+    </em>
+    ESG7, October 19–21, Grenoble, France.
+  </div>
+
+  <div class="publication">
+    <strong>Su, H.</strong>, Hok, S., Causse, M., Gélis, C., Cornou, C. (2024).
+    <em>
+      Near-fault ground motion prediction, site effects and wave propagation
+      at regional scale for a shallow earthquake in southeastern France.
+    </em>
+    NMEM 2024 Workshop, June 23–27, Smolenice Castle, Slovakia.
+  </div>
+
+  <div class="publication">
+    <strong>Su, H.</strong>, Gabriel, A.A., Moorkamp, M. (2023).
+    <em>
+      Physics-Based Ground Motion Simulation for the 2017 Mw 6.5 Botswana
+      Intraplate Earthquake.
+    </em>
+    Seismological Society of America Conference Poster,
+    SSA 2023 Future Directions: Physics-Based Ground Motion Modelling,
+    October 10–13, Vancouver, Canada.
+  </div>
+
+  <div class="publication">
+    <strong>Su, H.</strong>, Gilbert, H., Dettmer, J., Grasby, S.E. (2019).
+    <em>
+      A novel nodal seismic investigation into the Mt. Meager geothermal system.
+    </em>
+    American Geophysical Union Fall Meeting 2019,
+    Abstract #T21F-0405.
+  </div>
+
+  <div class="publication">
+    <strong>Su, H.</strong> (2019).
+    <em>
+      Structure Imaging in the Area of Mt. Meager.
+    </em>
+    Final Report and Reflection, Program for Undergraduate Research Experience
+    (PURE), University of Calgary, Alberta, Canada, pp. 1–7.
+  </div>
+
+  <div class="publication">
+    Grasby, S.E., Ansari, S.M., Bryant, R., Calahorrano-Di Patre, A.,
+    Chen, Z., Craven, J.A., Dettmer, J., Gilbert, H., Hanneson, C.,
+    Harris, M., Hormozzade, F., Liu, J., Montezadian, D., Muhammad, M.,
+    Russell, J.K., Salvage, R.O., Savard, G., <strong>Su, H.</strong>,
+    Tschirhart, V., Unsworth, M.J., Vigouroux-Caillibot, N.,
+    Williams-Jones, G., Williamson, A.R. (2020).
+    <em>
+      The Garibaldi Volcanic Belt geothermal energy project –
+      Mount Meager 2019 field program.
+    </em>
+    Geological Survey of Canada, Open File 8732.
+  </div>
+
+</section>
+
+
+<!-- Awards -->
+<section id="awards">
+
+  <h2>Honors & Awards</h2>
+
+  <div class="award">
+    <span class="award-year">2024</span> —
+    Recipient of the <strong>Best PhD Student Poster Award</strong>,
+    Institut de Radioprotection et de Sûreté Nucléaire (IRSN).
+  </div>
+
+  <div class="award">
+    <span class="award-year">2022–2023</span> —
+    Recipient of the <strong>LMU Study Scholarship</strong>,
+    funded by the Federal State of Bavaria.
+  </div>
+
+  <div class="award">
+    <span class="award-year">2020</span> —
+    Recipient of the <strong>IDEAS Fund</strong>,
+    Faculty of Science, University of Calgary.
+  </div>
+
+  <div class="award">
+    <span class="award-year">2019–2020</span> —
+    <strong>Dean's List</strong>, Department of Geoscience,
+    University of Calgary, GPA 3.94/4.00.
+  </div>
+
+  <div class="award">
+    <span class="award-year">2019</span> —
+    Recipient of the <strong>PURE Research Fund</strong>,
+    Office of the Provost, University of Calgary.
+  </div>
+
+</section>
+
+
+<!-- Training -->
+<section id="training">
+
+  <h2>Certificates & Training</h2>
+
+  <ul>
+
+    <li>
+      <strong>2025</strong> —
+      End-to-End LLM Bootcamp, Teratec CEA and NVIDIA Corporation,
+      Bruyères-le-Châtel, France.
+    </li>
+
+    <li>
+      <strong>2024</strong> —
+      Français Langue Étrangère – Niveau A2,
+      Centre Universitaire d'Études Françaises,
+      Université Grenoble Alpes, France.
+    </li>
+
+    <li>
+      <strong>2024</strong> —
+      Prise en main du calculateur Topaze,
+      TGCC CEA (Très Grand Centre de Calcul du CEA).
+    </li>
+
+    <li>
+      <strong>2021</strong> —
+      Certificate of Participation,
+      2nd PRACE Advanced Training on HPC for Computational Seismology,
+      HLRS, Germany.
+    </li>
+
+    <li>
+      <strong>2020</strong> —
+      Certificate of Participation,
+      IRIS Seismology Skill Building Workshop,
+      IRIS & Miami University, USA.
+    </li>
+
+    <li>
+      <strong>2017</strong> —
+      National Computer Rank Examination,
+      Level 4 Certificate (Highest),
+      Ministry of Education of China.
+    </li>
+
+  </ul>
+
+</section>
+
+
+<!-- Skills -->
+<section id="skills">
+
+  <h2>Skills</h2>
+
+  <div class="skill-group">
+    <strong>Programming & Computing</strong>
+    C · C++ · Python · MATLAB · Bash
+  </div>
+
+  <div class="skill-group">
+    <strong>Research Areas</strong>
+    Earthquake Source Mechanics · Ground Motion Modelling ·
+    Numerical Simulation · Computational Seismology ·
+    Seismic Data Analysis · High-Performance Computing
+  </div>
+
+  <div class="skill-group">
+    <strong>Languages</strong>
+    Chinese (Native) · English (C2) · German (B1–B2) ·
+    French (A2–B1)
+  </div>
+
+  <div class="skill-group">
+    <strong>Other</strong>
+    EU Driver's License
+  </div>
+
+</section>
+
+
+<!-- Contact -->
+<section id="contact">
+
+  <h2>Contact</h2>
+
+  <p>
+    I am always happy to connect with researchers, students, and colleagues
+    interested in earthquake science, computational seismology, and
+    physics-based ground motion modelling.
+  </p>
+
+  <p style="margin-top: 15px;">
+    <strong>Email:</strong>
+    <a href="mailto:hongyi.su@asnr.fr">hongyi.su@asnr.fr</a>
+    <br>
+
+    <strong>Academic Email:</strong>
+    <a href="mailto:hongyi.su@univ-grenoble-alpes.fr">
+      hongyi.su@univ-grenoble-alpes.fr
+    </a>
+  </p>
+
+  <p style="margin-top: 15px;">
+    <strong>Office:</strong><br>
+    Bureau 352, Risk Team, ISTerre<br>
+    1381, rue de la Piscine<br>
+    38610 Gières, France
+  </p>
+
+</section>
+```
+
+  </main>
+
+  <!-- Footer -->
+
+  <footer>
+    © 2026 Hongyi Su · Personal Academic Website
+  </footer>
+
 </body>
 </html>
